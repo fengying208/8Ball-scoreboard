@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專業撞球計分系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lobby" class="lobby-overlay">
+        <div class="lobby-card">
+            <h1>中8比賽設定</h1>
+            <div class="input-group">
+                <label>選手一姓名</label>
+                <input type="text" id="input-p1-name" value="選手一">
+            </div>
+            <div class="input-group">
+                <label>選手二姓名</label>
+                <input type="text" id="input-p2-name" value="選手二">
+            </div>
+            <div class="input-group">
+                <label>賽制 (搶幾)</label>
+                <input type="number" id="input-race" value="10">
+            </div>
+
+            <div class="input-group">
+                <label>開球規則</label>
+                <select id="input-break-rule">
+                    <option value="winner">贏家開球</option>
+                    <option value="alternate">輪流開球</option>
+                    <option value="loser">輸家開球</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>首局開球者</label>
+                <select id="input-first-breaker">
+                    <option value="1">選手一</option>
+                    <option value="2">選手二</option>
+                </select>
+            </div>
+
+            <button id="start-btn">進入比賽</button>
+        </div>
+    </div>
+
+    <div id="scoreboard" class="scoreboard-container" style="display: none;">
+        <div id="player-1" class="player-section">
+            <div class="header" id="display-p1-name">選手一</div>
+            <div id="score-1" class="score-display">0</div>
+        </div>
+
+        <div class="info-section">
+            <div class="timer-container">
+                <div id="timer">00:00:00</div>
+                <div class="label">時 分 秒</div>
+            </div>
+            <div id="race-info">(10)</div>
+            <button id="reset-btn">回大廳</button>
+        </div>
+
+        <div id="player-2" class="player-section">
+            <div class="header" id="display-p2-name">選手二</div>
+            <div id="score-2" class="score-display">0</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
