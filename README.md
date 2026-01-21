@@ -1,4 +1,5 @@
 # 撞球計分網站 (8Ball Scoreboard)
+[開啟計分頁面](https://fengying208.github.io/8Ball-scoreboard/)
 
 這是一個專為平板與觸控裝置優化的網頁版撞球計分系統。
 
