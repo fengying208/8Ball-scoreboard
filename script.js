@@ -14,6 +14,10 @@ const scoreboard = document.getElementById('scoreboard');
 
 // --- 開始比賽 ---
 document.getElementById('start-btn').addEventListener('click', () => {
+    // 1. 請求全螢幕 (新增的部分)
+    launchFullScreen(document.documentElement); 
+
+    // 原有的邏輯...
     const p1Name = document.getElementById('input-p1-name').value;
     const p2Name = document.getElementById('input-p2-name').value;
     const raceNum = document.getElementById('input-race').value;
@@ -31,6 +35,18 @@ document.getElementById('start-btn').addEventListener('click', () => {
     startTimer();
     updateBreakerUI();
 });
+
+function launchFullScreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+    }
+}
 
 // --- 加分邏輯 (雙擊) ---
 document.getElementById('player-1').addEventListener('dblclick', () => {
@@ -140,8 +156,21 @@ function resetMatch() {
 
 document.getElementById('reset-btn').addEventListener('click', () => {
     if (confirm("確定要結束比賽並回到大廳嗎？")) {
+        // 退出全螢幕 (新增的部分)
+        exitFullScreen();
+
         clearInterval(timerInterval);
         scoreboard.style.display = 'none';
         lobby.style.display = 'flex';
     }
 });
+
+function exitFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
