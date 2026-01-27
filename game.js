@@ -3,6 +3,45 @@ let timerInterval = null;
 let settings = JSON.parse(localStorage.getItem('poolMatchSettings'));
 let currentBreaker = settings.firstBreaker;
 const LONG_PRESS_DURATION = 1500;
+const fsBtn = document.getElementById('fullscreen-btn');
+
+// --- 全螢幕切換功能 ---
+fsBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        // 進入全螢幕
+        launchFullScreen(document.documentElement);
+        fsBtn.innerText = "退出全螢幕";
+    } else {
+        // 退出全螢幕
+        exitFullScreen();
+        fsBtn.innerText = "進入全螢幕";
+    }
+});
+
+function launchFullScreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) { // Safari
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+    }
+}
+
+function exitFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
+
+// 監聽使用者按 ESC 或系統退出全螢幕時，自動更改按鈕文字
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+        fsBtn.innerText = "進入全螢幕";
+    }
+});
 
 // 初始化頁面顯示
 document.getElementById('display-p1-name').innerText = settings.p1Name;

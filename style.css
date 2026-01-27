@@ -68,3 +68,26 @@ h1 { color: #ff6600; margin-bottom: 30px; letter-spacing: 2px; }
     z-index: 10;
     box-shadow: inset 0 0 50px rgba(255, 153, 0, 0.3), 0 0 30px rgba(255, 153, 0, 0.5);
 }
+
+.control-btn, #reset-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #666;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px; /* 按鈕之間的間距 */
+    transition: all 0.2s ease;
+    width: 80%; /* 讓按鈕寬度一致 */
+}
+
+.control-btn:hover, #reset-btn:hover {
+    color: #fff;
+    border-color: #ff6600;
+    background-color: rgba(255, 102, 0, 0.1);
+}
+
+#fullscreen-btn {
+    border-color: #444;
+    color: #888;
+}
