@@ -2,7 +2,7 @@ let score1 = 0, score2 = 0, totalSeconds = 0;
 let timerInterval = null;
 let settings = JSON.parse(localStorage.getItem('poolMatchSettings'));
 let currentBreaker = settings.firstBreaker;
-const LONG_PRESS_DURATION = 1500;
+const LONG_PRESS_DURATION = 600;
 const fsBtn = document.getElementById('fullscreen-btn');
 
 // --- 全螢幕切換功能 ---
